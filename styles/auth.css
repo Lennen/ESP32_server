@@ -1,0 +1,32 @@
+H1 {
+  color: #000080;
+  font-size: 150%;
+  font-family: Arial, Verdana, sans-serif;
+  text-align: center;
+}
+input[type=button], input[type=submit], input[type=reset] {
+  background-color: #000080;
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  border-radius: 4px;
+  text-decoration: none;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+input[type=text], input[type=password] {
+  background-color: #FFFFFF;
+  color: #000080;
+}
+input[type=text]:focus, input[type=password]:focus {
+  background-color: #000080;
+  color: white;
+}
+.form-style-1 {
+	margin:10px auto;
+	max-width: 400px;
+	padding: 20px 12px 10px 20px;
+	font: 13px "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	background-color: yellow;
+	border-radius: 4px;
+}

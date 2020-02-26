@@ -1,0 +1,42 @@
+
+H1 {
+  color: #000080;
+  font-size: 12pt;
+  font-family: Arial, Verdana, sans-serif;
+  text-align: center;
+}
+
+.text {
+  color: #000080;
+  font-size: 12pt;
+  font-family: Arial, Verdana, sans-serif;
+  text-align: center;
+}
+
+.left-menu {
+	width: 200px; 
+	height: 60px;
+    background: yellow;
+    border: solid 1px #000080;
+    border-radius: 4px;
+}
+
+.left-menu2 {
+	width: 200px; 
+	height: 60px;
+    background: yellow;
+    border: solid 1px #000080; 
+        border-radius: 4px;
+}
+.chart {
+    padding: 5px;
+    margin-left: 210px;
+    margin-top: -150px;
+    width: 900px; 
+    height: 500px;
+}
+.chart text {
+    font-size: 14pt;
+    font-family: Arial, Verdana, sans-serif;
+    text-align: center;
+}
