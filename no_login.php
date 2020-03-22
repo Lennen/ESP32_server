@@ -4,6 +4,8 @@
 //Здесь же необходимо только значение с датчика и id пользователя или его login.
 
 include("_dbconnect.php");
+include("_localization.php");
+
 $user1 = filter_var($_GET['login'],FILTER_SANITIZE_STRING);
 $password = filter_var($_GET['password'],FILTER_SANITIZE_STRING);
 
@@ -26,8 +28,6 @@ if($user1!='')
         foreach ($row as $key=>$value)
             $arr[$key][] = $value;
     }
-        //$data1 = mysqli_fetch_assoc($query1);
-        //print_r($arr);
 ?>
      
 
@@ -39,9 +39,9 @@ if($user1!='')
     google.charts.load('current', {'packages':['corechart']});
     google.charts.setOnLoadCallback(drawChart);
 
-    function drawChart() {
+    function drawChart() {  //LineChart
         var data = google.visualization.arrayToDataTable([
-          ['time', 'Sensor Value'],
+          ['<?=$title[$cl]?>', '<?=$sensorVal[$cl]?>'],
           <?php $cnt_all = count($arr['val']); $x = $cnt_all-10; while ($x++<$cnt_all-1): ?>
           ['<?=$x?>',  <?=$arr['val'][$x]?>],
           <?php endwhile ?>
@@ -49,9 +49,16 @@ if($user1!='')
         ]);
 
         var options = {
-          title: 'Sensor Values',
-          
-          legend: { position: 'bottom' }
+            title: '<?=$sensorVals[$cl]?>',
+            //lineDashStyle: [4, 4],
+            pointSize: 7,
+            tooltip: {textStyle: {color: 'gray'}, showColorCode: true},
+            hAxis: {
+                title: '<?=$xAxisLabel[$cl]?>',
+                ticks: [5,10,15,20],
+                titleTextStyle: {color: 'gray'}
+            },
+            legend: { position: 'bottom' }
         };
 
         var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
@@ -65,11 +72,11 @@ if($user1!='')
         <link rel="stylesheet" type="text/css" href="./styles/user_interface.css">
         
         <div class="left-menu">
-            <H1>Привет, <?=$user1?> (id = <?=$user_id?>) Всё работает!</H1>
+            <H1><?=$hello[$cl]?>, <?=$user1?> (id = <?=$user_id?>), <?=$allworks[$cl]?>!</H1>
         </div>
         
         <div class="left-menu2">
-            <H1>Последнее принятое значение: <?=$arr['val'][$cnt_all-1];?></H1>
+            <H1><?=$lastReceivedValue[$cl]?>: <?=$arr['val'][$cnt_all-1];?></H1>
         </div>
         
         <div id="curve_chart" class = "chart"></div>

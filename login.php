@@ -1,7 +1,8 @@
-<?
+﻿<?
 // Страница авторизации
 
 include("_dbconnect.php");
+include("_localization.php");
 
 // To generate random String
 function generateCode($length=6) {
@@ -41,7 +42,7 @@ if(isset($_POST['submit']))
         setcookie("hash", $hash, time()+60*60*24*30,null,null,null,true); // httponly !!!
 
         // Переадресовываем браузер на страницу проверки нашего скрипта
-        header("Location: check.php"); exit();
+        header("Location: ./check.php"); exit();
     }
     else
     {
@@ -50,18 +51,21 @@ if(isset($_POST['submit']))
 }
 ?>
 <html>
-    <meta http-equiv="Content-Type" content="text/html; charset=cp1251" />
     <body>
         <link rel="stylesheet" href="./styles/auth.css">
-        <H1>Войти в смарт-систему</H1>
+        <H1 width = 300px><?=$intro[$cl]?></H1>
         <form method="POST" background-color="lightblue">
             <ul class="form-style-1">
                 <center><table>
-                    <tr><td>Логин</td><td><input name="login" type="text" required></td></tr>
-                    <td>Пароль</td><td><input name="password" type="password" required></td></tr>
+                    <tr><td><?=$login[$cl]?></td><td><input name="login" type="text" required></td></tr>
+                    <td><?=$pass[$cl]?></td><td><input name="password" type="password" required></td></tr>
                 </table></center>
-                Не прикреплять к IP(не безопасно) <input type="checkbox" name="not_attach_ip" checked="true"><br>
-                <center><input name="submit" type="submit" value="Войти"></center>
+                <?=$ipcheck[$cl]?><input type="checkbox" name="not_attach_ip" checked="true"><br>
+                <center>
+                    <input name="submit" type="submit" value="<?=$log_in[$cl]?>">
+                    <input name="submit" type="submit" value="<?=$no_login[$cl]?>" onclick="document.location='no_login.php?val=50&login=kra'">
+                    <input name="submit" type="submit" value="<?=$register[$cl]?>" onclick="document.location='register.php'">
+                </center>
             </ul>
         </form>
     </body>
