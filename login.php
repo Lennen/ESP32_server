@@ -53,7 +53,7 @@ if(isset($_POST['submit']))
     <meta http-equiv="Content-Type" content="text/html; charset=cp1251" />
     <body>
         <link rel="stylesheet" href="./styles/auth.css">
-        <H1>Вход в смарт-систему</H1>
+        <H1>Войти в смарт-систему</H1>
         <form method="POST" background-color="lightblue">
             <ul class="form-style-1">
                 <center><table>
