@@ -1,3 +1,3 @@
 <?
-  $link=mysqli_connect("localhost", "db_name", "", "root");
+  $link=mysqli_connect("localhost", "root", "", "db_name");
 ?>
